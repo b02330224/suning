@@ -1,0 +1,434 @@
+// less是css的预处理器
+// 方便了css的计算 写起来更方便
+// 选择混合运用
+@font-base: 25px;
+
+a {
+    text-decoration: none;
+}
+
+body {
+    min-width: 320rem / @font-base;
+    max-width: 750rem / @font-base;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, STHeiTi, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    // 这一段代码的意义是将最后固定定位的盒子显示在页面上
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    height: 1200rem / @font-base;
+}
+
+// header 部分 
+header {
+    width: 375rem / @font-base;
+    height: 90rem / @font-base;
+    background-color: #D00202;
+    // background: url(images/hd-bgi.png) no-repeat;
+    // background-size: 100%;
+    margin: 0 auto;
+
+    .hd-top {
+        width: 341rem / @font-base;
+        height: 44rem / @font-base;
+        padding: 0rem 17rem / @font-base;
+        margin: 0 auto;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+
+        a {
+            width: 18rem / @font-base;
+            height: 30rem / @font-base;
+            margin-top: .36rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .center-top {
+            width: 225rem / @font-base;
+            height: 27.5rem / @font-base;
+            margin: 9rem / @font-base 25rem / @font-base 0 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .hd-bottom {
+        position: relative;
+        width: 351rem / @font-base;
+        height: 32rem / @font-base;
+        margin: 0 12rem / @font-base;
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            height: 1.28rem;
+            line-height: 1.28rem;
+            background-color: #FFF;
+            font-size: .56rem;
+            color: #999;
+            -webkit-appearance: none;
+            padding: 0 0 0 30rem / @font-base;
+            border-radius: 0.6rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 12rem / @font-base;
+            left: 11rem / @font-base;
+            display: block;
+            width: 18rem / @font-base;
+            height: 18rem / @font-base;
+            // base64 使用方法就是将所以的代码一起复制到背景中即可
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAABGtJREFUWAntl8tr1EkQxzMT4qhBo/FBFLMylyWQwJIHiqCnqAdFXfci6klZkFW8uUpUPKjgHyAiomgCHnYRMRg8uHtSlyWuk5dBJ3pJloCPKIkoiUJmJn5q7PrRv4e/yTxO4g96qrq6Ht/uru6uKSv7/oWvQCR8OHx0dHR03sTExIpUKrWgoqLiVUNDw5tIJJIJtwofzQvQ0NDQgsnJyS24/HlmZmYjdKnHfYp+ElC3aZ1NTU0Jz3jO7qwADQ8Pzx0fHz+MtzaALM7p1SgA6gHs0ebm5u5Z2+RS7O/vX8OW3EDvhwDdj8heEvgDQGugy6BRrx7ya9XV1Qfj8fgn75i3H7pCPT09ewlwBaO5luEz+A6CdDLzpCUvk5waGxtrRfYLbQ+2MWv8IfzOlpaWl5bMx34VkAFz3bJ4C4jj5MVVaNqSB7K9vb2rM5nMOQZ3WwrPy8vL1zY2Nr6zZC42EJDZpntoZlcGAI9p2wHzv8t6Fh0mdoCVOo9qhVH/i5Xd8rVJ+fZbEtjkjAOmsrJyfSFgBADBLxF8F23GANrc19d3xPA+4gNkTpMmsGzT9rq6ug8+yzwEgLqFn1Nqwla2JZPJJdq3qQuQ3DMMtqkCTiRn8t4mtbcpeSP59MTIqqampo7Z48q7AKG0lf3We+aZJLAqFkuZXJrmTBZ/coJ9OewChMIOK3CHOLH6RbNM8A5OXosjYq3k8LR4nXoByXOQ/QDTqXypKD4z+OpSf+TSJuWVOoDkUkOob9NH76WnBsXSaDTaoz5YpVrllTqA5NVWITT0NrX0CmFfqBErtlJ5pQ4gKSFUiGJRx1z9BFF8v1c5K7RQeaUOIKlnVIhijfKlpuRNtfoE3LjySh1AUlwhlHqmDMVlJqdUr2SUyf5oOfOlhgMIEHICsq83RlHzalu2JWM3qCdi/qe8UgeQCFC4rQNQKSFK+g0MDCzHoXPUiXffG8ALyL579kgJ4TUopp9Opw9hn331AfOA52TE688FiJs0IYqixLbFTD3jtSmoPzg4WIu/39WYOBeVt6kLkBk4ainslnrG6hfMTk9P/4axXL6SGo9YnT+CnPkAcUN3Y9CuyqzUeUDt1H6hFD9b1Rb+JDG0PlJxlvoAiZSCXGbzMKvxZc9vkk8ncRSob/RCCbZzVIEydkx5Lw0MYP4dyKo8FwOcRdj/M6zUY9q2XMA4TXH0ziYSiX9EX3ywIt1C5cPXafH5pef+DRSqCqXmIk7Gn/Q3q8zQ19Au81DK2zRFgFpanMDr6LdaAd/zT6MKcGsZ+xd5dhHgr3KIfoW6ti4UkATHQbnUwMxKiqsqkeXzEbCdvNwnNrJq+Duh9kGgcgJSY6mBTdkplZ7vlVY9Q1ME66Jd5jTdhcorkN16cvEK9vst/Yus4EHtzxqQGuAsIpUeK7YJvpZgAm4+bZT+CNs4HIvF/q6vr3cea7UVKvY2KAGLbJX+gcwbkO28UF5AsX0XACP/2Z6ypT/pKhbqsyR2JPoKAAWe9JIE+CadfAZDI9Qzc39rMQAAAABJRU5ErkJggg==) no-repeat;
+            background-size: 100%;
+        }
+    }
+}
+
+// content部分
+.content {
+    .banner {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tu {
+            position: absolute;
+            top: 1rem / @font-base;
+            left: 12rem / @font-base;
+            width: 351rem / @font-base;
+            height: 130rem / @font-base;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 6rem / @font-base;
+            }
+        }
+    }
+
+    nav {
+        margin: 0 0.48rem;
+        // 这里可以给浮动的父元素添加高度 或者清除浮动
+        height: 142rem / @font-base;
+
+        a {
+            float: left;
+            display: block;
+            width: 70rem / @font-base;
+            height: 71rem / @font-base;
+            // 让盒子里面的内容全部居中对齐
+            text-align: center;
+
+            img {
+                width: 42rem / @font-base;
+                height: 42rem / @font-base;
+            }
+
+            div {
+                font-size: .44rem;
+                color: #666;
+                margin-top: -6px;
+            }
+        }
+    }
+
+    .sanfen {
+        display: flex;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .yishen {
+        width: 375rem / @font-base;
+        height: 35rem / @font-base;
+        margin-top: -6rem / @font-base;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .dalibao {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10rem / @font-base;
+
+        a {
+            width: 7.5rem;
+
+            img {
+                height: 117rem / @font-base;
+                // 这里设置图片的高度后宽度会跟着等比例缩放
+            }
+        }
+
+    }
+}
+
+.four {
+
+    .big {
+        display: flex;
+        margin: 0 12rem / @font-base;
+        width: 351rem / @font-base;
+
+        .lazyimg:nth-child(1) {
+            border-right: 1px solid #F2F2F2;
+        }
+
+        .lazyimg {
+            width: 175rem / @font-base;
+            height: 129rem / @font-base;
+            background-color: #fff;
+            padding-bottom: 10rem / @font-base;
+            border-bottom: 1px solid #F2F2F2;
+
+            .title {
+                width: 56rem / @font-base;
+                height: 20rem / @font-base;
+                margin: .36rem .16rem 0 .48rem;
+                color: #333;
+                font-size: 14rem / @font-base;
+                font-weight: 700;
+            }
+
+            p {
+                width: 150rem / @font-base;
+                height: 15rem / @font-base;
+                color: #999;
+                font-size: 12rem / @font-base;
+                margin: .08rem 0 0 .48rem;
+            }
+
+            .price {
+                float: left;
+
+                img {
+                    width: 60rem / @font-base;
+                    height: 60rem / @font-base;
+                    margin: .08rem 0 0 .48rem;
+                }
+
+                .count {
+                    width: 60rem / @font-base;
+                    height: 14rem / @font-base;
+                    text-align: center;
+                    color: #F50;
+                    font-size: .44rem;
+                    height: .56rem;
+                    line-height: .56rem;
+                    margin-top: .02rem;
+                }
+            }
+        }
+    }
+}
+
+.title-four {
+    position: relative;
+    width: 351rem / @font-base;
+    height: 86rem / @font-base;
+    background-color: #fff;
+    margin: 0 auto;
+
+    .left-title {
+        position: absolute;
+        top: -18rem / @font-base;
+        left: 1rem / @font-base;
+        float: left;
+        width: 86rem / @font-base;
+        height: 86rem / @font-base;
+        padding: .94rem .36rem 0 .36rem;
+
+        a {
+            .tuijian {
+                width: 2.74rem;
+                height: .9rem;
+                line-height: .9rem;
+                font-size: .64rem;
+                color: #444;
+                font-weight: 700;
+            }
+
+            .pingdao {
+                width: 2.74rem;
+                height: .64rem;
+                line-height: .64rem;
+                font-size: .48rem;
+                color: #999;
+                margin-top: -17rem / @font-base;
+                // 在一行上显示省略号
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .four-space {
+        position: absolute;
+        top: -18rem / @font-base;
+        left: 66rem / @font-base;
+        display: flex;
+        width: 2.4rem;
+        height: 3.44rem;
+
+        .four-item {
+            position: relative;
+            float: left;
+            width: 60rem / @font-base;
+            height: 86rem / @font-base;
+            margin: 0 5px;
+
+            a {
+                position: relative;
+                display: block;
+                // 将a元素转换为块级元素才能设置宽高
+                width: 50rem / @font-base;
+                height: 50rem / @font-base;
+                margin: 0 11rem / @font-base;
+
+                img {
+                    position: absolute;
+                    top: 26px;
+                    left: 3px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            p {
+                position: absolute;
+                top: 62rem / @font-base;
+                left: 10rem / @font-base;
+                width: 2.4rem;
+                height: .6rem;
+                line-height: .6rem;
+                font-size: .44rem;
+                text-align: center;
+                color: #333;
+            }
+        }
+
+    }
+}
+
+.tt-content {
+    // 这里添加overflow: hidden 后就不会有滚动条了
+    overflow: hidden;
+    // 这里添加overflow: hidden 后就不会有滚动条了
+    position: relative;
+    display: flex;
+    width: 351rem / @font-base;
+    height: 33rem / @font-base;
+    margin: 0 12rem / @font-base;
+    background-color: #fff;
+    border-top: 1px solid #f2f2f2;
+
+    img {
+        width: 56rem / @font-base;
+        height: 15rem / @font-base;
+        margin: .38rem .36rem .32rem;
+    }
+
+    .list-wrapper {
+        position: absolute;
+        top: -2rem / @font-base;
+        left: 75rem / @font-base;
+        width: 12.32rem;
+        height: 1.32rem;
+
+        a {
+            width: 265rem / @font-base;
+            height: 33rem / @font-base;
+
+            i {
+                width: 34rem / @font-base;
+                height: 12rem / @font-base;
+                background-color: #fc0;
+                border-radius: .24rem;
+                font-size: .36rem;
+                height: .48rem;
+                line-height: .48rem;
+                padding: 0 .2rem;
+                color: #222;
+                margin-right: .24rem;
+                vertical-align: middle;
+            }
+
+            span {
+                width: 9rem;
+                font-size: .48rem;
+                // 在一行上显示省略号
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+// 尾部
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    .top {
+        width: 15rem;
+        height: 1.8rem;
+
+        a {
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        background-color: #fff;
+
+        a {
+            display: block;
+            width: 3rem;
+            height: 2rem;
+            line-height: .64rem;
+            text-align: center;
+
+            img {
+                width: 34rem / @font-base;
+                height: 34rem / @font-base;
+            }
+
+            span {
+                display: block;
+                font-size: .4rem;
+                line-height: .64rem;
+                color: #666;
+                text-align: center;
+            }
+        }
+    }
+}
